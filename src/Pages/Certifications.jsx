@@ -99,3 +99,5 @@ export const Certifications = () => {
     </section>
   );
 };
+
+export default Certifications;

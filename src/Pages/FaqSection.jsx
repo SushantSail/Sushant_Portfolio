@@ -114,4 +114,4 @@ export const FaqSection = () => {
   );
 };
 
-
+export default FaqSection;

@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState , lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { FaPlay, FaInfoCircle } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const heroVideo = "/images/video.mp4";
+
+const TrendingNow = lazy(() => import("../Components/TrendingNow"));
+const TopTen = lazy(() => import("../Components/TopTen"));
 
 const navLinks = [
   { label: "Home", to: "/home" },
@@ -15,82 +18,6 @@ const navLinks = [
   { label: "Contact", to: "/contactme" },
 ];
 
-// ✅ Trending Now section with individual images
-const trendingNow = [
-  {
-    title: "Skills",
-    path: "/skills",
-    image:
-      "../images/Skills.jfif",
-  },
-  {
-    title: "Projects",
-    path: "/projects",
-    image:
-      "../images/MoneyHeist.jfif",
-  },
-  {
-    title: "Experience",
-    path: "/experience",
-    image:
-      "../images/Experience.jfif",
-  },
-  {
-    title: "Certifications",
-    path: "/certifications",
-    image:
-      "../images/Certification.jfif",
-  },
-];
-
-// ✅ Top 10 section with individual images
-const topTen = [
-    {
-    title: "Contact Me",
-    path: "/contactme",
-    image:
-      "../images/ContactMe.jfif",
-  },
-  {
-    title: "FAQ",
-    path: "/faq",
-    image:
-      "../images/FAQ.jpg",
-  },
-      {
-    title: "Achievements",
-    path: "/certifications",
-    image:
-      "../images/Achi.jpg",
-  },
-    {
-    title: "Recent Work",
-    path: "/projects",
-    image:
-      "../images/Recent.jfif",
-  },
-    {
-    title: "Experience",
-    path: "/experience",
-    image:
-      "../images/Experience.jfif",
-  },
-      {
-    title: "Skills",
-    path: "/skills",
-    image:
-      "../images/Skills.jfif",
-  },
-
-
-  //     {
-  //   title: "Certifications",
-  //   path: "/certifications",
-  //   image:
-  //     "https://cdn.pixabay.com/photo/2017/07/31/14/28/certificate-2556239_1280.jpg",
-  // },
-];
-
 export const HomePage = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -99,7 +26,7 @@ export const HomePage = () => {
       {/* ===== Top Nav Header ===== */}
       <header className="fixed top-0 left-0 right-0 bg-black bg-opacity-90 z-50 flex items-center justify-between px-6 sm:px-16 h-14">
         <div className="flex items-center space-x-4">
-          <img src="./images/New.png" alt="Logo" className="h-10 sm:h-14 w-auto" />
+          <img src="./images/New.png" alt="Logo" className="h-10 sm:h-14 w-auto"/>
           <nav className="hidden sm:flex space-x-6 text-sm font-semibold">
             {navLinks.map(({ label, to }) => (
               <Link key={to} to={to} className="hover:text-red-600 transition-colors">
@@ -179,60 +106,15 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Trending Now Section ===== */}
-      <section className="px-6 sm:px-16 mt-10">
-        <h2 className="text-3xl font-bold mb-4">Trending Now</h2>
-        <div className="flex space-x-6 overflow-x-auto scrollbar-hide py-2">
-{trendingNow.map(({ title, path, image }, idx) => (
-  <Link
-    key={idx}
-    to={path}
-    className="min-w-[323px] h-[183px] rounded-lg relative overflow-hidden cursor-pointer group flex-shrink-0"
-  >
-    <div
-      className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-      style={{ backgroundImage: `url(${image})` }}
-    />
-    {/* Dark overlay for readability */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all"></div>
-    {/* Title */}
-    <div className="absolute bottom-4 left-4 text-white font-semibold text-xl z-10">
-      {title}
-    </div>
-  </Link>
-))}
+<Suspense fallback={
+  <div className="flex items-center justify-center h-screen text-white text-xl">
+  Loading...
+</div>
+}>
+        <TrendingNow />
+        <TopTen />
+</Suspense>
 
-        </div>
-      </section>
-
-      {/* ===== Top 10 Section ===== */}
-      <section className="px-6 sm:px-16 mt-10 pb-16">
-        <h2 className="text-3xl font-bold mb-4">Top 10</h2>
-        <div className="flex space-x-6 overflow-x-auto scrollbar-hide py-2">
-         {topTen.map(({ title, path, image }, idx) => (
-  <Link
-    key={idx}
-    to={path}
-    className="min-w-[323px] h-[183px] rounded-lg relative overflow-hidden cursor-pointer group flex-shrink-0 snap-start"
-  >
-    {/* Background image */}
-    <div
-      className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-      style={{ backgroundImage: `url(${image})` }}
-    />
-
-    {/* Dark gradient overlay for better text visibility */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all"></div>
-
-    {/* Title text */}
-    <div className="absolute bottom-4 left-4 text-white font-semibold text-xl z-10">
-      {title}
-    </div>
-  </Link>
-))}
-
-        </div>
-      </section>
 
             {/* ===== Footer Section ===== */}
 <footer className="bg-black text-gray-400 mt-16 px-6 sm:px-16 py-10 border-t border-gray-800">
@@ -288,3 +170,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;
