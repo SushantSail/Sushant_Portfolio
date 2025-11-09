@@ -95,7 +95,7 @@ export const HomePage = () => {
               <FaPlay /> Resume
             </a>
             <a
-              href="https://www.linkedin.com/in/sushantsail"
+              href="https://www.linkedin.com/in/sushant-sail-20182615a/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-gray-700/80 text-white px-6 py-3 rounded font-semibold hover:bg-gray-600 transition"
