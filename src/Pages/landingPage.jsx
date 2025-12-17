@@ -32,7 +32,7 @@ export const LandingPage = () => {
           </div>
           <Link to="/home">
           <button className="bg-red-600 text-white text-sm sm:text-base px-3 py-1 sm:px-4 sm:py-1.5 rounded hover:bg-red-700 transition font-semibold">
-            Get Started
+           Connect
           </button>
           </Link>
         </div>
@@ -64,14 +64,20 @@ export const LandingPage = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-0">
-            <input
+            {/* <input
               type="email"
               placeholder="Email address"
               className="w-full sm:w-96 px-4 py-3 rounded-md text-white focus:outline-none border border-gray-700 backdrop-blur-md shadow-lg hover:bg-zinc-800/80 bg-transparent"
             />
             <button className="mt-2 sm:mt-0 sm:ml-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-md transition w-auto">
               Connect
-            </button>
+            </button> */}
+
+          <Link to="/home">
+          <button className="mt-2 sm:mt-0 sm:ml-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-md transition w-auto">
+            Get Started
+          </button>
+          </Link>
           </div>
         </div>
       </section>

@@ -26,7 +26,9 @@ export const HomePage = () => {
       {/* ===== Top Nav Header ===== */}
       <header className="fixed top-0 left-0 right-0 bg-black bg-opacity-90 z-50 flex items-center justify-between px-6 sm:px-16 h-14">
         <div className="flex items-center space-x-4">
+          <Link to="/" className="cursor-pointer">
           <img src="./images/New.png" alt="Logo" className="h-10 sm:h-14 w-auto"/>
+          </Link>
           <nav className="hidden sm:flex space-x-6 text-sm font-semibold">
             {navLinks.map(({ label, to }) => (
               <Link key={to} to={to} className="hover:text-red-600 transition-colors">
@@ -69,7 +71,7 @@ export const HomePage = () => {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
         >
           <source src={heroVideo} type="video/mp4" />
         </video>

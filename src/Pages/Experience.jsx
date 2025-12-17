@@ -44,7 +44,7 @@ export const Experience = () => {
                 Tata Consultancy Services (TCS)
               </h3>
               <p className="text-gray-400 text-sm italic mb-3">
-                Role: Frontend Developer — HDFC Mobile Banking Project
+                Role: Frontend Developer — HDFC Banking Project
               </p>
               <ul className="list-disc ml-5 text-gray-300 text-sm leading-relaxed">
                 <li>
