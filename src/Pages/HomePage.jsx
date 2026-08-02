@@ -89,7 +89,7 @@ export const HomePage = () => {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://drive.google.com/drive/u/3/folders/17IeX6HlTJ7_KpzURrqV7eEAdmX9PX2Jk"
+              href="https://drive.google.com/file/d/1G8IEvAozZdJEpQAssFtvBGGHcprz4OgA/view"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded font-semibold hover:bg-gray-300 transition"
